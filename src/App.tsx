@@ -11,7 +11,7 @@ function App() {
     <>
       <GlobalStyle />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route index path="/" element={<Home />} />
         <Route path="/write" element={<Write />} />
         <Route path="/my-page" element={<MyPage />} />
         <Route path="/post" element={<Post />} />
