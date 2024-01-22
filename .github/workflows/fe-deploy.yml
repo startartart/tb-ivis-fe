@@ -5,6 +5,17 @@ on:
     branches:
       - main
 
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+  
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -43,7 +54,7 @@ jobs:
           server-dir: ${{ secrets.FTP_TARGET_PATH }}
           local-dir: ./dist/
           passive: true
-          
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
