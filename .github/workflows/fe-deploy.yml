@@ -19,6 +19,15 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Setting .env
+        env:
+          VITE_KAKAO_REST_API_KEY: ${{ secrets.VITE_KAKAO_REST_API_KEY }}
+          VITE_KAKAO_REDIRECT_URI: ${{ secrets.VITE_KAKAO_REDIRECT_URI }}
+
+        run: |
+          echo "VITE_KAKAO_REST_API_KEY=${VITE_KAKAO_REST_API_KEY}" >> .env
+          echo "VITE_KAKAO_REDIRECT_URI=${VITE_KAKAO_REDIRECT_URI}" >> .env
+
       - name: Build
         run: npm run build
 
