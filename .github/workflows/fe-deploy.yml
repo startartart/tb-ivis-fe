@@ -31,9 +31,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Copy Routing
-        run: cp dist/index.html dist/404.html
-
       - name: Upload to FTP
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
